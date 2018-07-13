@@ -22,7 +22,6 @@ requirements:
   build:
     - make  # [not win]
     - {{ compiler('c') }}
-  host:
     - go 1.9.*  # [not win]
     - rsync  # [not win]
 
