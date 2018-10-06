@@ -7,7 +7,7 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ version }}.{{ version_suffix }}
 
 source:
   url: https://github.com/kubernetes/federation/archive/v{{ version }}-{{version_suffix}}.tar.gz
@@ -16,7 +16,7 @@ source:
 
 build:
   skip: True  # [not linux]
-  number: "{{ version_suffix }}-0"
+  number: 0
 
 requirements:
   build:
