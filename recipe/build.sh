@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-make_goroot_read_only()
-{
-    find $PREFIX/go -type d -exec chmod 555 {} \;
-}
+pushd src/k8s.io/federation
 
 build_linux()
 {
@@ -11,17 +7,18 @@ build_linux()
 
     make test
 
+    mkdir $PREFIX/bin
     mv _output/bin/{fcp,kubefed} $PREFIX/bin
 
     pushd $PREFIX/bin
-    ./fcp --make-symlinks
+        ./fcp --make-symlinks
     popd
 }
-
-make_goroot_read_only
 
 case $(uname -s) in
     "Linux")
         build_linux
         ;;
 esac
+
+popd
