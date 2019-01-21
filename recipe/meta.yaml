@@ -27,16 +27,16 @@ requirements:
 
 test:
   commands:
-    - fcp --help  # [linux]
-    - federation-apiserver --help  # [linux]
-    - federation-controller-manager --help  # [linux]
+    - fcp --help
+    - federation-apiserver --help
+    - federation-controller-manager --help
     - kubefed help
 
 about:
   home: https://www.kubernetes.io
   license: Apache-2.0
   license_family: Apache
-  license_file: LICENSE  # [not win]
+  license_file: {{pkg_src}}/LICENSE
   summary: Production-Grade Container Orchestration / Federation
   doc_url: https://docs.kubernetes.io/docs/home/
   dev_url: https://github.com/kubernetes/federation
