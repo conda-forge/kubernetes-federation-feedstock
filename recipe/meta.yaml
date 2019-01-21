@@ -1,6 +1,6 @@
 {% set goname = "k8s.io/federation" %}
-{% set version = "1.9.0" %}
-{% set version_suffix = "alpha.3" %}
+{% set version = "1.10.0" %}
+{% set version_suffix = "alpha.0" %}
 
 
 {% set name = goname.split('/')[-1] %}
@@ -13,7 +13,7 @@ package:
 source:
   - folder: {{ pkg_src }}
     url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}-{{version_suffix}}.tar.gz
-    sha256: 9cbc8fb14318a5ebd9bf4c4a7f8a1a5e7508445c9488e59c58482c3c2607f6bb
+    sha256: 6e11061ef5496a93ba32d84c6ebbe20f815e75b3e1f7468d3ab78c0c6ae0543d
 
 build:
   skip: True  # [not linux]
