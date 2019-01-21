@@ -1,16 +1,19 @@
-{% set name = "kubernetes-federation" %}
+{% set goname = "k8s.io/federation" %}
 {% set version = "1.9.0" %}
 {% set version_suffix = "alpha.3" %}
 
 
+{% set name = goname.split('/')[-1] %}
+{% set pkg_src = ('src/'+goname).replace("/", os.sep) %}
+
 package:
-  name: {{ name|lower }}
-  version: {{ version }}a3
+  name: kubernetes-{{ name|lower }}
+  version: {{ version }}{{ version_suffix[0] }}{{ version_suffix.split('.')[-1] }}
 
 source:
-  url: https://github.com/kubernetes/federation/archive/v{{ version }}-{{version_suffix}}.tar.gz
-  fn: {{ name }}-{{ version }}.tar.gz
-  sha256: 9cbc8fb14318a5ebd9bf4c4a7f8a1a5e7508445c9488e59c58482c3c2607f6bb
+  - folder: {{ pkg_src }}
+    url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}-{{version_suffix}}.tar.gz
+    sha256: 9cbc8fb14318a5ebd9bf4c4a7f8a1a5e7508445c9488e59c58482c3c2607f6bb
 
 build:
   skip: True  # [not linux]
@@ -18,7 +21,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - {{ compiler('go') }} 1.8
     - rsync
     - make
 
