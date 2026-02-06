@@ -12,12 +12,12 @@ package:
 
 source:
   - folder: {{ pkg_src }}
-    url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}-{{version_suffix}}.tar.gz
+    url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}-{{ version_suffix }}.tar.gz
     sha256: 6e11061ef5496a93ba32d84c6ebbe20f815e75b3e1f7468d3ab78c0c6ae0543d
 
 build:
   skip: True  # [not linux]
-  number: 1000
+  number: 1001
 
 requirements:
   build:
@@ -36,7 +36,7 @@ about:
   home: https://www.kubernetes.io
   license: Apache-2.0
   license_family: Apache
-  license_file: {{pkg_src}}/LICENSE
+  license_file: {{ pkg_src }}/LICENSE
   summary: Production-Grade Container Orchestration / Federation
   doc_url: https://docs.kubernetes.io/docs/home/
   dev_url: https://github.com/kubernetes/federation
